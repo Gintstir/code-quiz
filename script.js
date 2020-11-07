@@ -3,19 +3,64 @@ var quizArea = document.querySelector(".quiz-area");
 var currentQuestion = 0;
 var quizQuestions = [
     {
-        title: 'how r u?',
-        choices: ['ans1', 'ans2', 'ans3', 'ans4'],
-        correct: 'ans1'
+        question: "In JavaScript there are two ways to create a function they are:",
+        choices: [
+            "1. function expression and function declaration",
+            "2. function extrusion and function induction",
+            "3. function exhaltation and function demarcation",
+            "4. function examination and function extrapolation"
+        ],
+        correctAnswer: "1. function expression and function declaration"
     },
     {
-        title: 'how r u2?',
-        choices: ['ans1', 'ans2', 'ans3', 'ans4'],
-        correct: 'ans1'
+        question: "Commentary in JavaScript can be marked(but not displayed in the browser) with which of the following notations?",
+        choices: [
+            "1. --><--",
+            "2. //",
+            "3. /**/",
+            "4. b and c"
+        ],
+        correct: "4. b and c"
     },
     {
-        title: 'how r u3?',
-        choices: ['ans1', 'ans2', 'ans3', 'ans4'],
-        correct: 'ans1'
+        question: "Which is the correct example of 'camel casing'?",
+        choices: [
+            "1. thiSiScameLcasinG",
+            "2. tHiSiScAmElCaSiNg",
+            "3. thisIsCamelCasing",
+            "4. thiIScamelCASING"
+        ],
+        correct: "3. thisIsCamelCasing"
+    },
+    {
+        question: "DOM is an acronym for:",
+        choices: [
+            "1. Digital Object Method",
+            "2. Document Object Model",
+            "3. Design Occurence Module",
+            "4. Disk Overwrite Matrix"
+        ],
+        correct: "2. Document Object Model"
+    },
+    {
+        question: "There are 7 Primitive Data types.  These include Boolean, Null, Undefined, BigInt, String, Symbol, and __________.",
+        choices: [
+            "1. Object",
+            "2. Cardinal",
+            "3. Number",
+            "4. None of the above"
+        ],
+        correct: "3. Number"
+    },
+    {
+        question: "Which of these is the strict ineqality operator",
+        choices: [
+            "1. >=",
+            "2. ===",
+            "3. !=",
+            "4. !=="
+        ],
+        correct: "4. !=="
     }
 ]
 
@@ -23,7 +68,7 @@ var quizQuestions = [
 
 
 startButton.addEventListener("click", function(){
-    quizArea.innerHTML = "<h1>" + quizQuestions[currentQuestion].title + "</h1>" +
+    quizArea.innerHTML = "<h1>" + quizQuestions[currentQuestion].question + "</h1>" +
                         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[0] + "</p>" +
                         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[1] + "</p>" +
                         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[2] + "</p>" +
@@ -35,11 +80,29 @@ startButton.addEventListener("click", function(){
 quizArea.addEventListener('click',  function(e) {
     if(e.target.tagName.toLowerCase() === 'p') {
         currentQuestion++;
-        quizArea.innerHTML = "<h1>" + quizQuestions[currentQuestion].title + "</h1>" +
+        quizArea.innerHTML = "<h1>" + quizQuestions[currentQuestion].question + "</h1>" +
         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[0] + "</p>" +
         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[1] + "</p>" +
         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[2] + "</p>" +
         "<p class='ansrChoice'>" + quizQuestions[currentQuestion].choices[3] + "</p>" ;
     }
 })
-
+//Timer function
+function startTimer() {
+    var counter =80;
+    setInterval(function() {
+        counter--;
+        if (counter >= 0) {
+            span = document.getElementById("timeremaining");
+            span.innerHTML = counter;
+        }
+        if(counter === 0) {
+            alert("Sorry, you are out of time");
+            clearInterval(counter);
+        }
+    }, 1000);    
+}
+function start() {
+    document.getElementById("timeremaining").style="color:red;";
+    startTimer();
+};
