@@ -1,0 +1,24 @@
+body {
+    margin: 100px;
+}
+header {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+        
+}
+.score-link {
+    text-decoration: none;
+    color: black;
+}
+header.quiztimer {
+    text-align: right;
+}
+#test {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+.hidden {
+    display: none;
+}

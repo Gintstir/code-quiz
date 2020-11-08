@@ -8,17 +8,15 @@
 </head>
 <body>
     <!--Static Nav bar with highscores link(left side) and timer(right side)-->
-    <header class="quizhead">
-        <h1 class="score-link">
-            <a href="">View High Scores</a>
-        </h1>
-        <h2 class="quiz-timer">
+    <header class="quizhead">        
+            <a href="highscore.html" class="score-link">View High Scores</a>        
+        <div class="quiz-timer">
             Time Remaining: 
             <span id="timeremaining">80</span> Seconds
-        </h2>
+        </div>
     </header>
     <div class="quiz-area">   
-        <h1>Welcome to the Code-Quiz</h1>
+        <h1 id="test">Welcome to the Code-Quiz</h1>
             <p> Test your coding knowledge!  Begin the quiz
                 by clicking the 'Start Quiz' button below.  As soon as you begin,
                 you will have 90 seconds to complete the quiz, every incorrect
@@ -26,6 +24,15 @@
                 highscore and see if you can be #1.  Good luck!
             </p>
         <button onclick="start()" class="start-button">Start Quiz</button>
+    </div>    
+    <div class="quiz-container hidden" id="quiz-container">
+        <div><h2 id="quiz-question">Question</h2></div>
+        <div class="ans-btns">
+            <button class="btn" id="button-one">Choice 1</button>
+            <button class="btn" id="button-two">Choice 2</button>
+            <button class="btn" id="button-three">Choice 3</button>
+            <button class="btn" id="button-four">Choice 4</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
